@@ -21,18 +21,32 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Turn();
         Move();
 
         //TODO:
-        //find player and kill
         //die when shot at mask - this should be a separate script which is attached to the mask
         //spawn collectible - this also probs goes to mask
     }
 
+    private void Turn()
+    {
+        Vector3 targetDirection = player.position - transform.position;
+
+        float singleStep = speed * Time.deltaTime;
+
+        Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, singleStep, 0.0f);
+
+        Debug.DrawRay(transform.position, newDirection, Color.red);
+
+        // Calculate a rotation a step closer to the target and applies rotation to this object
+        transform.rotation = Quaternion.LookRotation(newDirection);
+    }
+
     private void Move()
     {
-        float velocity = speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, player.position, velocity);
+        float step = speed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, player.position, step);
         //print(transform.position);
     }
 
