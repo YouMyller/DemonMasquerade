@@ -369,7 +369,8 @@ namespace StarterAssets
 					GM_JumpHeightMultiplier = 1;
 					spreadshot = false;
 					maxHP = 5; //test number
-					JukeBox.pitch = -1;
+                    uiManager.UpdateHealth(maxHP);
+                    JukeBox.pitch = -1;
 					break;
 				case 2:     //Spreadshot + Movement speed down
 					spreadshot = true;
@@ -379,7 +380,8 @@ namespace StarterAssets
 					bulletForce = 750;
 					GM_JumpHeightMultiplier = 1;
 					maxHP = 5; //test number
-					JukeBox.pitch = 1;
+                    uiManager.UpdateHealth(maxHP);
+                    JukeBox.pitch = 1;
 					break;
 				case 3:     //Super Jump + slow bullets
 					GM_JumpHeightMultiplier = 3;
@@ -389,7 +391,8 @@ namespace StarterAssets
 					reloadTime = 2;
 					spreadshot = false;
 					maxHP = 5; //test number
-					JukeBox.pitch = 1;
+                    uiManager.UpdateHealth(maxHP);
+                    JukeBox.pitch = 1;
 					break;
 				case 4:   // 1 HP + Fully powered
 					GM_JumpHeightMultiplier = 3;
@@ -400,6 +403,7 @@ namespace StarterAssets
 					maxHP = 1;
 					bulletForce = 1250;
 					hp = maxHP;
+                    uiManager.UpdateHealth(hp);
 					JukeBox.pitch = 1;
 					break;
 				case 5:  //Move speed down + reload speed up;
@@ -410,7 +414,8 @@ namespace StarterAssets
 					GM_JumpHeightMultiplier = 1;
 					spreadshot = false;
 					maxHP = 5; //test number
-					JukeBox.pitch = 1;
+                    uiManager.UpdateHealth(maxHP);
+                    JukeBox.pitch = 1;
 					break;
 
 			}

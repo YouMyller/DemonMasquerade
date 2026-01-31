@@ -25,6 +25,13 @@ public class UIManager : MonoBehaviour
         
     }
 
+    
+    public void UpdateHealth(int updatedHealth)
+    {
+        playerHealth = updatedHealth;
+        healthText.text = playerHealth.ToString();
+    }
+
     public void HurtPlayer()
     {
         playerHealth -= 1;

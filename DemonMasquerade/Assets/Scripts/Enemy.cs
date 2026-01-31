@@ -17,7 +17,8 @@ public class Enemy : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
+        if (GameObject.Find("UIManager") != null)
+            uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
         playerGO = GameObject.FindWithTag("Player");
         player = playerGO.GetComponent<Transform>();
 
