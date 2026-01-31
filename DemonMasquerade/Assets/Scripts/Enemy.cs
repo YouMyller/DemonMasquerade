@@ -37,9 +37,8 @@ public class Enemy : MonoBehaviour
 
         Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, singleStep, 0.0f);
 
-        Debug.DrawRay(transform.position, newDirection, Color.red);
+        //Debug.DrawRay(transform.position, newDirection, Color.red);
 
-        // Calculate a rotation a step closer to the target and applies rotation to this object
         transform.rotation = Quaternion.LookRotation(newDirection);
     }
 
@@ -47,7 +46,6 @@ public class Enemy : MonoBehaviour
     {
         float step = speed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, player.position, step);
-        //print(transform.position);
     }
 
     private void OnCollisionEnter(Collision collision)
