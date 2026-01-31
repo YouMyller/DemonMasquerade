@@ -408,5 +408,28 @@ namespace StarterAssets
 
         }
 
-	}
+		void OnTriggerEnter(Collider other)
+		{
+			if (other.tag == "MaskCollectible")
+			{
+				int randInt = UnityEngine.Random.Range(1, 6);
+				Debug.Log(randInt);
+
+				if (randInt < 1)
+				{
+					randInt = 1;
+				}
+				else if (randInt > 5)
+				{
+					randInt = 5;
+				}
+
+				PickedMask(randInt);
+				
+			}
+		}
+
+        
+
+    }
 }
