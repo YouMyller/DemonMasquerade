@@ -22,7 +22,7 @@ public class EnemySpawner : MonoBehaviour
             GameObject enemyInstance;
             enemyInstance = Instantiate(enemy, this.transform.position, this.transform.rotation);
 
-            float NewSpawnTime = UnityEngine.Random.Range(1, 10);
+            float NewSpawnTime = UnityEngine.Random.Range(5, 10);
 
             spawnNow = NewSpawnTime;
             timerToSpawn = 0;
