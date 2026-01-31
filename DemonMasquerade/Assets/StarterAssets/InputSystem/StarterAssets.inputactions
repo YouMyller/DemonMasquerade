@@ -242,7 +242,7 @@
                     "name": "",
                     "id": "147afb74-b2ac-4866-a56c-297f0af690f2",
                     "path": "<Keyboard>/#(0)",
-                    "interactions": "",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "Test1",

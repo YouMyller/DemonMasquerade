@@ -34,6 +34,8 @@ namespace StarterAssets
 		public bool spreadshot;
 		public GameObject rSpread;
 		public GameObject lSpread;
+		public int hp;
+		public int maxHP;
 
 		[Space(10)]
 		[Tooltip("The height the player can jump")]
@@ -118,6 +120,7 @@ namespace StarterAssets
 			GM_SpeedMul = GameManagerO.GetComponent<GameManagerScript>().speedMultiplier;
 			GM_reverseMovementMultiplier = GameManagerO.GetComponent<GameManagerScript>().reverseMovementMultiplier;
 			GM_JumpHeightMultiplier = GameManagerO.GetComponent<GameManagerScript>().JumpHeightMultiplier;
+			hp = maxHP;
 			
 
 
@@ -142,20 +145,22 @@ namespace StarterAssets
 
 			firerate += Time.deltaTime;
 
-			if (_input.test1)
+			if (_input.test1 && firerate > reloadTime)
 			{
-				Debug.Log("Is pressed");
-					if (GM_reverseMovementMultiplier == 1)
-				{
-					GM_reverseMovementMultiplier = -1;
+				int randInt = UnityEngine.Random.Range(1, 6);
+				Debug.Log(randInt);
 
-				}
-				else if (GM_reverseMovementMultiplier == -1)
-				{
-					GM_reverseMovementMultiplier = 1;
-				}
-				else { }
-				_input.test1 = false;
+				if(randInt < 1)
+                {
+					randInt = 1;
+                }
+				else if(randInt > 5)
+                {
+					randInt = 5;
+                }
+
+				PickedMask(randInt);
+				firerate = 0;
 			}
 
             if (_input.Shoot && firerate > reloadTime)
@@ -344,6 +349,64 @@ namespace StarterAssets
 			// when selected, draw a gizmo in the position of, and matching radius of, the grounded collider
 			Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z), GroundedRadius);
 		}
+
+
+		public void PickedMask(int num)
+        {
+			switch(num) {
+
+
+				case 1:    //Reverse controls + Reload speed
+					GM_reverseMovementMultiplier = -1;
+					reloadTime = 0.5f;
+					GM_SpeedMul = 1;
+					bulletForce = 750;
+					GM_JumpHeightMultiplier = 1;
+					spreadshot = false;
+					maxHP = 5; //test number
+					break;
+				case 2:     //Spreadshot + Movement speed down
+					spreadshot = true;
+					GM_SpeedMul = 0.95f;
+					GM_reverseMovementMultiplier = 1;
+					reloadTime = 2;
+					bulletForce = 750;
+					GM_JumpHeightMultiplier = 1;
+					maxHP = 5; //test number
+					break;
+				case 3:     //Super Jump + slow bullets
+					GM_JumpHeightMultiplier = 3;
+					bulletForce = 250;
+					GM_reverseMovementMultiplier = 1;
+					GM_SpeedMul = 1;
+					reloadTime = 2;
+					spreadshot = false;
+					maxHP = 5; //test number
+					break;
+				case 4:   // 1 HP + Fully powered
+					GM_JumpHeightMultiplier = 3;
+					spreadshot = true;
+					reloadTime = 0.5f;
+					GM_reverseMovementMultiplier = 1;
+					GM_SpeedMul = 1.05f;
+					maxHP = 1;
+					bulletForce = 1250;
+					hp = maxHP;
+					break;
+				case 5:  //Move speed down + reload speed up;
+					GM_SpeedMul = 0.95f;
+					reloadTime = 1;
+					GM_reverseMovementMultiplier = 1;
+					bulletForce = 750;
+					GM_JumpHeightMultiplier = 1;
+					spreadshot = false;
+					maxHP = 5; //test number
+					break;
+
+			}
+
+
+        }
 
 	}
 }
