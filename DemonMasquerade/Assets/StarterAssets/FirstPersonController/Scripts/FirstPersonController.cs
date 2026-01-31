@@ -172,17 +172,27 @@ namespace StarterAssets
 
 				if(spreadshot == false)
                 {
-					GameObject bulletInstance;
+					/*GameObject bulletInstance;
 					bulletInstance = Instantiate(bullet, MaskGreen.transform.position, MaskGreen.transform.rotation);
-					bulletInstance.GetComponent<Rigidbody>().AddForce(MaskGreen.transform.forward * bulletForce);
+					bulletInstance.GetComponent<Rigidbody>().AddForce(MaskGreen.transform.forward * bulletForce);*/
 
-					Destroy(bulletInstance, 5);
+					GameObject Ammo = ObjectPool.SharedInstance.GetAmmo();
+					Ammo.transform.position = MaskGreen.transform.position;
+					Ammo.transform.rotation = MaskGreen.transform.rotation;
+					
+					//Ammo.transform.localScale = transform.localScale / 2;
+					Ammo.SetActive(true);
+					Ammo.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
+					Ammo.GetComponent<Rigidbody>().AddForce(MaskGreen.transform.forward * bulletForce);
+
+					//Destroy(bulletInstance, 5);
+					//Invoke("RemoveBullet(Ammo)", 3.0f);
 					firerate = 0;
 				}
 
                 else
                 {
-					GameObject bulletInstance;
+					/*GameObject bulletInstance;
 					bulletInstance = Instantiate(bullet, MaskGreen.transform.position, MaskGreen.transform.rotation);
 					bulletInstance.GetComponent<Rigidbody>().AddForce(MaskGreen.transform.forward * bulletForce);
 
@@ -196,7 +206,31 @@ namespace StarterAssets
 
 					Destroy(bulletInstance, 5);
 					Destroy(bulletInstance2, 5);
-					Destroy(bulletInstance3, 5);
+					Destroy(bulletInstance3, 5);*/
+
+					GameObject Ammo = ObjectPool.SharedInstance.GetAmmo();
+					Ammo.transform.position = MaskGreen.transform.position;
+					Ammo.transform.rotation = MaskGreen.transform.rotation;
+					//Ammo.transform.localScale = transform.localScale / 2;
+					Ammo.SetActive(true);
+					Ammo.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
+					Ammo.GetComponent<Rigidbody>().AddForce(MaskGreen.transform.forward * bulletForce);
+
+					GameObject Ammo2 = ObjectPool.SharedInstance.GetAmmo();
+					Ammo2.transform.position = MaskGreen.transform.position;
+					Ammo2.transform.rotation = MaskGreen.transform.rotation;
+					//Ammo.transform.localScale = transform.localScale / 2;
+					Ammo2.SetActive(true);
+					Ammo2.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
+					Ammo2.GetComponent<Rigidbody>().AddForce(rSpread.transform.forward * bulletForce);
+
+					GameObject Ammo3 = ObjectPool.SharedInstance.GetAmmo();
+					Ammo3.transform.position = MaskGreen.transform.position;
+					Ammo3.transform.rotation = MaskGreen.transform.rotation;
+					//Ammo.transform.localScale = transform.localScale / 2;
+					Ammo3.SetActive(true);
+					Ammo3.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
+					Ammo3.GetComponent<Rigidbody>().AddForce(lSpread.transform.forward * bulletForce);
 
 					firerate = 0;
 				}
@@ -443,7 +477,8 @@ namespace StarterAssets
 
                 uiManager.AddScore();
 
-                Destroy(other.gameObject);
+				//Destroy(other.gameObject);
+				other.gameObject.SetActive(false);
 			}
 		}
 

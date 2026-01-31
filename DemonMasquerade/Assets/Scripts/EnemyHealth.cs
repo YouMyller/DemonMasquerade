@@ -33,6 +33,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if (other.gameObject.tag == "Bullet")
             HurtEnemy();
+            other.gameObject.SetActive(false);
     }
 
     private void HurtEnemy()
@@ -52,9 +53,16 @@ public class EnemyHealth : MonoBehaviour
         if (spawnValue <= spawnChance)
         {
             Vector3 pos = transform.parent.position;
-            Instantiate(maskCollectible, pos, Quaternion.identity);
+            //Instantiate(maskCollectible, pos, Quaternion.identity);
+
+            GameObject Mask = ObjectPool.SharedInstance.GetMask();
+            Mask.transform.position = transform.parent.position;
+            //Ammo.transform.rotation = pos.rotation;
+            //Ammo.transform.localScale = transform.localScale / 2;
+            Mask.SetActive(true);
         }
 
-        Destroy(transform.parent.gameObject);
+        //Destroy(transform.parent.gameObject);
+        transform.parent.gameObject.SetActive(false);
     }
 }

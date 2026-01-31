@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject enemy;
+    //public GameObject enemy;
     private float timerToSpawn;
     private float spawnNow;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -19,8 +19,15 @@ public class EnemySpawner : MonoBehaviour
 
         if(timerToSpawn >= spawnNow)
         {
-            GameObject enemyInstance;
-            enemyInstance = Instantiate(enemy, this.transform.position, this.transform.rotation);
+            //GameObject enemyInstance;
+            //enemyInstance = Instantiate(enemy, this.transform.position, this.transform.rotation);
+
+            GameObject Enemy = ObjectPool.SharedInstance.GetEnemy();
+            Enemy.transform.position = this.transform.position;
+            Enemy.transform.rotation = this.transform.rotation;
+
+            //Ammo.transform.localScale = transform.localScale / 2;
+            Enemy.SetActive(true);
 
             float NewSpawnTime = UnityEngine.Random.Range(5, 10);
 
