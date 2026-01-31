@@ -20,6 +20,9 @@ namespace StarterAssets
 		public bool cursorLocked = true;
 		public bool cursorInputForLook = true;
 
+		public bool test1;
+		public bool Shoot;
+
 #if ENABLE_INPUT_SYSTEM
 		public void OnMove(InputValue value)
 		{
@@ -43,6 +46,17 @@ namespace StarterAssets
 		{
 			SprintInput(value.isPressed);
 		}
+
+		public void OnTest1(InputValue value)
+		{
+			Debug.Log("TEST1 CALLBACK");
+			test1 = value.isPressed;
+		}
+
+		public void OnShoot(InputValue value)
+        {
+			Shoot = value.isPressed;
+        }
 #endif
 
 

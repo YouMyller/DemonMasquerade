@@ -1,21 +1,27 @@
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManagerScript : MonoBehaviour
 {
 
-    private float speedMultiplier;
-    private float reverseMovementMultiplier;
-    private float JumpHeightMultiplier;
+    public float speedMultiplier;
+    public float reverseMovementMultiplier; //either 1 or -1
+    public float JumpHeightMultiplier;
     private int maxHP;
     private bool spreadshot;
     //private float firerate;
     //private bool bulletSize;
 
+    [SerializeField]
+    private GameObject Player;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        //speedMultiplier = 1;
+        //reverseMovementMultiplier = 1;
+        //JumpHeightMultiplier = 1;
+
     }
 
     // Update is called once per frame

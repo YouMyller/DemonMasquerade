@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
@@ -20,6 +21,19 @@ namespace StarterAssets
 		public float RotationSpeed = 1.0f;
 		[Tooltip("Acceleration and deceleration")]
 		public float SpeedChangeRate = 10.0f;
+		[Tooltip("GameManager")]
+		public GameObject GameManagerO;
+		public float GM_SpeedMul = 0;
+		public float GM_reverseMovementMultiplier = 1;
+		public float GM_JumpHeightMultiplier;
+		public GameObject MaskGreen;
+		public GameObject bullet;
+		public float bulletForce;
+		public float firerate;
+		public float reloadTime;
+		public bool spreadshot;
+		public GameObject rSpread;
+		public GameObject lSpread;
 
 		[Space(10)]
 		[Tooltip("The height the player can jump")]
@@ -64,7 +78,9 @@ namespace StarterAssets
 		private float _jumpTimeoutDelta;
 		private float _fallTimeoutDelta;
 
-	
+
+
+
 #if ENABLE_INPUT_SYSTEM
 		private PlayerInput _playerInput;
 #endif
@@ -72,7 +88,7 @@ namespace StarterAssets
 		private StarterAssetsInputs _input;
 		private GameObject _mainCamera;
 
-		private const float _threshold = 0.01f;
+        private const float _threshold = 0.01f;
 
 		private bool IsCurrentDeviceMouse
 		{
@@ -99,6 +115,12 @@ namespace StarterAssets
 		{
 			_controller = GetComponent<CharacterController>();
 			_input = GetComponent<StarterAssetsInputs>();
+			GM_SpeedMul = GameManagerO.GetComponent<GameManagerScript>().speedMultiplier;
+			GM_reverseMovementMultiplier = GameManagerO.GetComponent<GameManagerScript>().reverseMovementMultiplier;
+			GM_JumpHeightMultiplier = GameManagerO.GetComponent<GameManagerScript>().JumpHeightMultiplier;
+			
+
+
 #if ENABLE_INPUT_SYSTEM
 			_playerInput = GetComponent<PlayerInput>();
 #else
@@ -110,11 +132,63 @@ namespace StarterAssets
 			_fallTimeoutDelta = FallTimeout;
 		}
 
+
+
 		private void Update()
 		{
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
+
+			firerate += Time.deltaTime;
+
+			if (_input.test1)
+			{
+				Debug.Log("Is pressed");
+					if (GM_reverseMovementMultiplier == 1)
+				{
+					GM_reverseMovementMultiplier = -1;
+
+				}
+				else if (GM_reverseMovementMultiplier == -1)
+				{
+					GM_reverseMovementMultiplier = 1;
+				}
+				else { }
+				_input.test1 = false;
+			}
+
+            if (_input.Shoot && firerate > reloadTime)
+            {
+
+				if(spreadshot == false)
+                {
+					GameObject bulletInstance;
+					bulletInstance = Instantiate(bullet, MaskGreen.transform.position, MaskGreen.transform.rotation);
+					bulletInstance.GetComponent<Rigidbody>().AddForce(MaskGreen.transform.forward * bulletForce);
+					firerate = 0;
+				}
+
+                else
+                {
+					GameObject bulletInstance;
+					bulletInstance = Instantiate(bullet, MaskGreen.transform.position, MaskGreen.transform.rotation);
+					bulletInstance.GetComponent<Rigidbody>().AddForce(MaskGreen.transform.forward * bulletForce);
+
+					GameObject bulletInstance2;
+					bulletInstance2 = Instantiate(bullet, rSpread.transform.position, rSpread.transform.rotation);
+					bulletInstance2.GetComponent<Rigidbody>().AddForce(rSpread.transform.forward * bulletForce);
+
+					GameObject bulletInstance3;
+					bulletInstance3 = Instantiate(bullet, lSpread.transform.position, lSpread.transform.rotation);
+					bulletInstance3.GetComponent<Rigidbody>().AddForce(lSpread.transform.forward * bulletForce);
+
+					firerate = 0;
+				}
+				
+			}
+
+
 		}
 
 		private void LateUpdate()
@@ -191,11 +265,11 @@ namespace StarterAssets
 			if (_input.move != Vector2.zero)
 			{
 				// move
-				inputDirection = transform.right * _input.move.x + transform.forward * _input.move.y;
+				inputDirection = transform.right * _input.move.x * GM_reverseMovementMultiplier + transform.forward * _input.move.y * GM_reverseMovementMultiplier;
 			}
 
 			// move the player
-			_controller.Move(inputDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+			_controller.Move(inputDirection.normalized * (_speed * Time.deltaTime ) * GM_SpeedMul + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
 		}
 
 		private void JumpAndGravity()
@@ -215,7 +289,7 @@ namespace StarterAssets
 				if (_input.jump && _jumpTimeoutDelta <= 0.0f)
 				{
 					// the square root of H * -2 * G = how much velocity needed to reach desired height
-					_verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+					_verticalVelocity = Mathf.Sqrt((JumpHeight * GM_JumpHeightMultiplier) * -2f * Gravity);
 				}
 
 				// jump timeout
@@ -264,5 +338,6 @@ namespace StarterAssets
 			// when selected, draw a gizmo in the position of, and matching radius of, the grounded collider
 			Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z), GroundedRadius);
 		}
+
 	}
 }
