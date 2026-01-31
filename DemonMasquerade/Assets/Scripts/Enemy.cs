@@ -5,17 +5,22 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private float speed;
 
-    [SerializeField]
+    //[SerializeField]
     private Transform player;
 
     //[SerializeField]
     private UIManager uiManager;
 
+    private GameObject playerGO;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
+        //uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
+        playerGO = GameObject.FindWithTag("Player");
+        player = playerGO.GetComponent<Transform>();
+
     }
 
     // Update is called once per frame
@@ -23,6 +28,16 @@ public class Enemy : MonoBehaviour
     {
         Turn();
         Move();
+
+        if(playerGO == null)
+        {
+            Debug.Log("No Player");
+        }
+
+        if(player == null)
+        {
+            Debug.Log("No player Transform");
+        }
 
         //TODO:
         //die when shot at mask - this should be a separate script which is attached to the mask
@@ -51,6 +66,9 @@ public class Enemy : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
+        {
             uiManager.HurtPlayer();
+        }
+           
     }
 }
