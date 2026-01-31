@@ -9,10 +9,20 @@ public class StateManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        titleStuff = GameObject.Find("TitleStuff");
-        creditsStuff = GameObject.Find("CreditsStuff");
+        Scene currentScene = SceneManager.GetActiveScene();
 
-        creditsStuff.SetActive(false);
+        if (currentScene.name == "Title")
+        {
+            titleStuff = GameObject.Find("TitleStuff");
+            creditsStuff = GameObject.Find("CreditsStuff");
+
+            creditsStuff.SetActive(false);
+        }
+    }
+
+    void Update()
+    {
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void StartGame()

@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
         if (GameObject.Find("UIManager") != null)
             uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
         playerGO = GameObject.FindWithTag("Player");
+        print(playerGO);
         player = playerGO.GetComponent<Transform>();
 
     }

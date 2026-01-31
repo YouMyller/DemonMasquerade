@@ -32,8 +32,10 @@ public class EnemyHealth : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Bullet")
+        {
             HurtEnemy();
             other.gameObject.SetActive(false);
+        }
     }
 
     private void HurtEnemy()

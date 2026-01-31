@@ -27,6 +27,7 @@ public class GameManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //if (Player.activeInHierarchy == false)
+          //  Player.SetActive(true);
     }
 }

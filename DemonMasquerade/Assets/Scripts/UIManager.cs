@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class UIManager : MonoBehaviour
@@ -14,7 +15,7 @@ public class UIManager : MonoBehaviour
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
-    {
+    { 
         healthText.text = playerHealth.ToString();
         scoreText.text = score.ToString();
     }
@@ -22,7 +23,7 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //Cursor.visible = true;
     }
 
     
@@ -38,6 +39,9 @@ public class UIManager : MonoBehaviour
         
         healthText.text = playerHealth.ToString();
         //print(playerHealth);
+
+        if (playerHealth <= 0)
+            SceneManager.LoadScene("GameOver");
     }
 
     public void AddScore()
