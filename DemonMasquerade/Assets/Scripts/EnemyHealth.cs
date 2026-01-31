@@ -38,7 +38,7 @@ public class EnemyHealth : MonoBehaviour
     private void KillEnemy()
     {
         Vector3 pos = transform.parent.position;
-        Instantiate(maskCollectible, pos, transform.rotation);
+        Instantiate(maskCollectible, pos, Quaternion.identity);
 
         Destroy(transform.parent.gameObject);
     }
