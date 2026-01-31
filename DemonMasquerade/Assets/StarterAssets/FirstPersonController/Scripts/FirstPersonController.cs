@@ -145,7 +145,9 @@ namespace StarterAssets
 
 		private void Update()
 		{
-			JumpAndGravity();
+            Cursor.lockState = CursorLockMode.Locked;
+
+            JumpAndGravity();
 			GroundedCheck();
 			Move();
 
@@ -401,7 +403,7 @@ namespace StarterAssets
 
 				case 1:    //Reverse controls + Reload speed
 					GM_reverseMovementMultiplier = -1;
-					reloadTime = 0.5f;
+					reloadTime = 0.3f;
 					GM_SpeedMul = 1;
 					bulletForce = 750;
 					GM_JumpHeightMultiplier = 1;
@@ -412,9 +414,9 @@ namespace StarterAssets
 					break;
 				case 2:     //Spreadshot + Movement speed down
 					spreadshot = true;
-					GM_SpeedMul = 0.95f;
+					GM_SpeedMul = 0.90f;
 					GM_reverseMovementMultiplier = 1;
-					reloadTime = 2;
+					reloadTime = 0.75f;
 					bulletForce = 750;
 					GM_JumpHeightMultiplier = 1;
 					maxHP = 5; //test number
@@ -426,7 +428,7 @@ namespace StarterAssets
 					bulletForce = 250;
 					GM_reverseMovementMultiplier = 1;
 					GM_SpeedMul = 1;
-					reloadTime = 2;
+					reloadTime = 0.75f;
 					spreadshot = false;
 					maxHP = 5; //test number
                     uiManager.UpdateHealth(maxHP);
@@ -435,7 +437,7 @@ namespace StarterAssets
 				case 4:   // 1 HP + Fully powered
 					GM_JumpHeightMultiplier = 3;
 					spreadshot = true;
-					reloadTime = 0.5f;
+					reloadTime = 0.3f;
 					GM_reverseMovementMultiplier = 1;
 					GM_SpeedMul = 1.05f;
 					maxHP = 1;
@@ -445,8 +447,8 @@ namespace StarterAssets
 					JukeBox.pitch = 1;
 					break;
 				case 5:  //Move speed down + reload speed up;
-					GM_SpeedMul = 0.95f;
-					reloadTime = 1;
+					GM_SpeedMul = 0.90f;
+					reloadTime = 0.3f;
 					GM_reverseMovementMultiplier = 1;
 					bulletForce = 750;
 					GM_JumpHeightMultiplier = 1;

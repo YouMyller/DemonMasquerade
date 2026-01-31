@@ -288,7 +288,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   health: 3
   maskCollectible: {fileID: 8206427377889064638, guid: 7c50456470d5d974994249fb379c4610, type: 3}
-  spawnChance: 100
+  spawnChance: 35
+  HitSFXHolder: {fileID: 0}
+  HitSFX: {fileID: 0}
+  MonsterDiesSFXHolder: {fileID: 0}
+  MonsterDiesSFX: {fileID: 0}
 --- !u!1001 &754916838535400884
 PrefabInstance:
   m_ObjectHideFlags: 0

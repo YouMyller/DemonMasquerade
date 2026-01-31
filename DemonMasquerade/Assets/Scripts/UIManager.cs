@@ -4,7 +4,7 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    private int playerHealth = 100;
+    private int playerHealth = 5;
     private int score = 0;
 
     [SerializeField]
