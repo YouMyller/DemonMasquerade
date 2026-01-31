@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Hand_Orange
+  m_Name: Hand_Blue
   m_Shader: {fileID: -6465566751694194690, guid: 9df677a7d90714cf1a3a86f64def3ba3, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -110,7 +110,7 @@ Material:
     - _GlossyReflections: 0
     - _Gradient: -0
     - _Metallic: 0
-    - _NoiseScale: 0.18
+    - _NoiseScale: 0.17
     - _NoiseScale2: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
@@ -130,10 +130,10 @@ Material:
     m_Colors:
     - _BaseColor: {r: 0.46226418, g: 0.40903562, b: 0.3554201, a: 1}
     - _Color: {r: 0.46226412, g: 0.4090356, b: 0.35542008, a: 1}
-    - _Color_1: {r: 0, g: 0, b: 0, a: 1}
-    - _Color_2: {r: 0.5013394, g: 0.1364903, b: 0, a: 1}
+    - _Color_1: {r: 0.11374155, g: 0.29768944, b: 0.33962262, a: 1}
+    - _Color_2: {r: 0.23082057, g: 0.43055904, b: 0.5377358, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Fresnel_Color: {r: 38.937145, g: 2.0169258, b: 0, a: 1}
+    - _Fresnel_Color: {r: 0, g: 6.445394, b: 38.937145, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _World_Gradient: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
