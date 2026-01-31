@@ -224,6 +224,18 @@ MonoBehaviour:
   SprintSpeed: 6
   RotationSpeed: 1
   SpeedChangeRate: 10
+  GameManagerO: {fileID: 0}
+  GM_SpeedMul: 0
+  GM_reverseMovementMultiplier: 1
+  GM_JumpHeightMultiplier: 0
+  MaskGreen: {fileID: 0}
+  bullet: {fileID: 5457760103083686404, guid: 50cef809fbc643f489d9873f94d44526, type: 3}
+  bulletForce: 750
+  firerate: 0
+  reloadTime: 2
+  spreadshot: 0
+  rSpread: {fileID: 0}
+  lSpread: {fileID: 0}
   JumpHeight: 1.2
   Gravity: -15
   JumpTimeout: 0.1
@@ -273,6 +285,8 @@ MonoBehaviour:
   analogMovement: 0
   cursorLocked: 1
   cursorInputForLook: 1
+  test1: 0
+  Shoot: 0
 --- !u!114 &8616685848737228376
 MonoBehaviour:
   m_ObjectHideFlags: 0
