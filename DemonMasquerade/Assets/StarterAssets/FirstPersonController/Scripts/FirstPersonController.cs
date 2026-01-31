@@ -437,6 +437,8 @@ namespace StarterAssets
 				PickedMask(randInt);
 
                 uiManager.AddScore();
+
+                Destroy(other.gameObject);
 			}
 		}
 
