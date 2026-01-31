@@ -253,9 +253,9 @@
                     "name": "",
                     "id": "3f3c4858-e428-4264-862a-91284e429956",
                     "path": "<Mouse>/leftButton",
-                    "interactions": "Hold",
+                    "interactions": "Press",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";KeyboardMouse",
                     "action": "Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
