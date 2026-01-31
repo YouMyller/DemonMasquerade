@@ -108,10 +108,10 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Gradient: 6.11
+    - _Gradient: -0
     - _Metallic: 0
-    - _NoiseScale: 0.16
-    - _NoiseScale2: 7.39
+    - _NoiseScale: 0.18
+    - _NoiseScale2: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0
@@ -130,12 +130,12 @@ Material:
     m_Colors:
     - _BaseColor: {r: 0.46226418, g: 0.40903562, b: 0.3554201, a: 1}
     - _Color: {r: 0.46226412, g: 0.4090356, b: 0.35542008, a: 1}
-    - _Color_1: {r: 0.16037738, g: 0.16037738, b: 0.16037738, a: 1}
+    - _Color_1: {r: 0, g: 0, b: 0, a: 1}
     - _Color_2: {r: 1.5921751, g: 0.4251899, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Fresnel_Color: {r: 38.937145, g: 2.0169258, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _World_Gradient: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 1}
+    - _World_Gradient: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &2008645901758217404
