@@ -8,11 +8,19 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField]
     private GameObject maskCollectible;
 
+    [SerializeField]
+    int spawnChance;
+    int maxSpawnChance = 100;
+    int minSpawnChance = 0;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         if (health == 0)
             health = 1;
+
+        if (spawnChance == 0)
+            spawnChance = 1;
     }
 
     // Update is called once per frame
@@ -37,8 +45,16 @@ public class EnemyHealth : MonoBehaviour
 
     private void KillEnemy()
     {
-        Vector3 pos = transform.parent.position;
-        Instantiate(maskCollectible, pos, Quaternion.identity);
+        int spawnValue = Random.Range(minSpawnChance, maxSpawnChance);
+
+        print(spawnValue);
+
+        if (spawnValue <= spawnChance)
+        {
+            print("spawn");
+            Vector3 pos = transform.parent.position;
+            Instantiate(maskCollectible, pos, Quaternion.identity);
+        }
 
         Destroy(transform.parent.gameObject);
     }
