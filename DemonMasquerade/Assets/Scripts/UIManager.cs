@@ -4,7 +4,7 @@ using TMPro;
 public class UIManager : MonoBehaviour
 {
     private int playerHealth = 100;
-    private int score;
+    private int score = 0;
 
     [SerializeField]
     private TMP_Text scoreText;
@@ -15,7 +15,8 @@ public class UIManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //scoreText.text = playerHealth.ToString();
+        healthText.text = playerHealth.ToString();
+        scoreText.text = score.ToString();
     }
 
     // Update is called once per frame
@@ -28,7 +29,13 @@ public class UIManager : MonoBehaviour
     {
         playerHealth -= 1;
         
-        scoreText.text = playerHealth.ToString();
+        healthText.text = playerHealth.ToString();
         //print(playerHealth);
+    }
+
+    public void AddScore()
+    {
+        score += 1;
+        scoreText.text = score.ToString();
     }
 }

@@ -51,7 +51,6 @@ public class EnemyHealth : MonoBehaviour
 
         if (spawnValue <= spawnChance)
         {
-            print("spawn");
             Vector3 pos = transform.parent.position;
             Instantiate(maskCollectible, pos, Quaternion.identity);
         }

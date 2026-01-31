@@ -81,11 +81,11 @@ namespace StarterAssets
 		private float _jumpTimeoutDelta;
 		private float _fallTimeoutDelta;
 
-
+        private UIManager uiManager;
 
 
 #if ENABLE_INPUT_SYSTEM
-		private PlayerInput _playerInput;
+        private PlayerInput _playerInput;
 #endif
 		private CharacterController _controller;
 		private StarterAssetsInputs _input;
@@ -116,7 +116,10 @@ namespace StarterAssets
 
 		private void Start()
 		{
-			_controller = GetComponent<CharacterController>();
+            if(GameObject.Find("UIManager") != null)
+                uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
+
+            _controller = GetComponent<CharacterController>();
 			_input = GetComponent<StarterAssetsInputs>();
 			GM_SpeedMul = GameManagerO.GetComponent<GameManagerScript>().speedMultiplier;
 			GM_reverseMovementMultiplier = GameManagerO.GetComponent<GameManagerScript>().reverseMovementMultiplier;
@@ -432,7 +435,8 @@ namespace StarterAssets
 				}
 
 				PickedMask(randInt);
-				
+
+                uiManager.AddScore();
 			}
 		}
 
