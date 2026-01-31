@@ -166,6 +166,8 @@ namespace StarterAssets
 					GameObject bulletInstance;
 					bulletInstance = Instantiate(bullet, MaskGreen.transform.position, MaskGreen.transform.rotation);
 					bulletInstance.GetComponent<Rigidbody>().AddForce(MaskGreen.transform.forward * bulletForce);
+
+					Destroy(bulletInstance, 5);
 					firerate = 0;
 				}
 
@@ -182,6 +184,10 @@ namespace StarterAssets
 					GameObject bulletInstance3;
 					bulletInstance3 = Instantiate(bullet, lSpread.transform.position, lSpread.transform.rotation);
 					bulletInstance3.GetComponent<Rigidbody>().AddForce(lSpread.transform.forward * bulletForce);
+
+					Destroy(bulletInstance, 5);
+					Destroy(bulletInstance2, 5);
+					Destroy(bulletInstance3, 5);
 
 					firerate = 0;
 				}
