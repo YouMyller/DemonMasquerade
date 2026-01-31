@@ -5,6 +5,9 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField]
     private int health;
 
+    [SerializeField]
+    private GameObject maskCollectible;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -34,6 +37,8 @@ public class EnemyHealth : MonoBehaviour
 
     private void KillEnemy()
     {
+        Instantiate(maskCollectible);
+
         Destroy(transform.parent.gameObject);
     }
 }

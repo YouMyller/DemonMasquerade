@@ -9,6 +9,9 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private TMP_Text scoreText;
 
+    [SerializeField]
+    private TMP_Text healthText;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
