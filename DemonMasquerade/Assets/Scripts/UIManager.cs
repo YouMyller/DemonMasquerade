@@ -37,7 +37,7 @@ public class UIManager : MonoBehaviour
     {
         playerHealth -= 1;
         
-        healthText.text = playerHealth.ToString();
+        //healthText.text = playerHealth.ToString();
         //print(playerHealth);
 
         if (playerHealth <= 0)

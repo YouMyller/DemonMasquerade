@@ -7,6 +7,8 @@ TagManager:
   - CinemachineTarget
   - Bullet
   - MaskCollectible
+  - HitSFX
+  - MonsterDeadSFX
   layers:
   - Default
   - TransparentFX

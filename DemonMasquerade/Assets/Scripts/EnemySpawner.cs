@@ -25,6 +25,7 @@ public class EnemySpawner : MonoBehaviour
             GameObject Enemy = ObjectPool.SharedInstance.GetEnemy();
             Enemy.transform.position = this.transform.position;
             Enemy.transform.rotation = this.transform.rotation;
+            Enemy.GetComponentInChildren<EnemyHealth>().SetHealth();
 
             //Ammo.transform.localScale = transform.localScale / 2;
             Enemy.SetActive(true);

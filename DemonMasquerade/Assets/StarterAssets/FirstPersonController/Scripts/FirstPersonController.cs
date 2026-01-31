@@ -37,6 +37,8 @@ namespace StarterAssets
 		public int hp;
 		public int maxHP;
 		public AudioSource JukeBox;
+		public AudioSource ShootSFX;
+		public AudioSource MaskPickupSFX;
 
 		[Space(10)]
 		[Tooltip("The height the player can jump")]
@@ -234,6 +236,8 @@ namespace StarterAssets
 
 					firerate = 0;
 				}
+
+				ShootSFX.Play();
 				
 			}
             
@@ -455,7 +459,10 @@ namespace StarterAssets
 			}
 
 
-        }
+			MaskPickupSFX.Play();
+
+
+		}
 
 		void OnTriggerEnter(Collider other)
 		{

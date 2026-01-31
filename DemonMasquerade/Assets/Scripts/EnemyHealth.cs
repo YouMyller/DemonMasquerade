@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    [SerializeField]
-    private int health;
+    
+    public int health;
 
     [SerializeField]
     private GameObject maskCollectible;
@@ -13,9 +13,22 @@ public class EnemyHealth : MonoBehaviour
     int maxSpawnChance = 100;
     int minSpawnChance = 0;
 
+    public GameObject HitSFXHolder;
+    public AudioSource HitSFX;
+
+    public GameObject MonsterDiesSFXHolder;
+    public AudioSource MonsterDiesSFX;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
+        HitSFXHolder = GameObject.FindGameObjectWithTag("HitSFX");
+        HitSFX = HitSFXHolder.GetComponent<AudioSource>();
+
+        MonsterDiesSFXHolder = GameObject.FindGameObjectWithTag("MonsterDeadSFX");
+        MonsterDiesSFX = MonsterDiesSFXHolder.GetComponent<AudioSource>();
+
         if (health == 0)
             health = 1;
 
@@ -41,9 +54,17 @@ public class EnemyHealth : MonoBehaviour
     private void HurtEnemy()
     {
         health -= 1;
+        
 
         if (health <= 0)
+        {
             KillEnemy();
+        }
+            
+        else
+        {
+            HitSFX.Play();
+        }
     }
 
     private void KillEnemy()
@@ -64,7 +85,14 @@ public class EnemyHealth : MonoBehaviour
             Mask.SetActive(true);
         }
 
+
+        //MonsterDiesSFX.Play();
         //Destroy(transform.parent.gameObject);
         transform.parent.gameObject.SetActive(false);
+    }
+
+    public void SetHealth()
+    {
+        health = 3;
     }
 }
