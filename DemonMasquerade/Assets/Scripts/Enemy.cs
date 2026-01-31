@@ -8,15 +8,14 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private Transform player;
 
-    [SerializeField]
-    private UIManager uiManager;
     //[SerializeField]
-    //private Rigidbody rigidbody;
+    private UIManager uiManager;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
     }
 
     // Update is called once per frame
