@@ -13,6 +13,9 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private TMP_Text healthText;
 
+    [SerializeField]
+    private AudioSource playerHitSFX;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     { 
@@ -35,6 +38,7 @@ public class UIManager : MonoBehaviour
 
     public void HurtPlayer()
     {
+        playerHitSFX.Play();
         playerHealth -= 1;
         
         //healthText.text = playerHealth.ToString();
