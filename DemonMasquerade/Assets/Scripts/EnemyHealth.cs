@@ -71,8 +71,6 @@ public class EnemyHealth : MonoBehaviour
     {
         int spawnValue = Random.Range(minSpawnChance, maxSpawnChance);
 
-        print(spawnValue);
-
         if (spawnValue <= spawnChance)
         {
             Vector3 pos = transform.parent.position;

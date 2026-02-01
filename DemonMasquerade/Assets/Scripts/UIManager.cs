@@ -13,12 +13,15 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private TMP_Text healthText;
 
+    private ScoreHolder scoreHolder;
+
     [SerializeField]
     private AudioSource playerHitSFX;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
-    { 
+    {
+        scoreHolder = GameObject.Find("ScoreHolder").GetComponent<ScoreHolder>();
         healthText.text = playerHealth.ToString();
         scoreText.text = score.ToString();
     }
@@ -40,12 +43,15 @@ public class UIManager : MonoBehaviour
     {
         playerHitSFX.Play();
         playerHealth -= 1;
-        
+
         //healthText.text = playerHealth.ToString();
         //print(playerHealth);
 
         if (playerHealth <= 0)
+        {
+            scoreHolder.UpdateScore(score);
             SceneManager.LoadScene("GameOver");
+        }
     }
 
     public void AddScore()

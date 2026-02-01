@@ -537,6 +537,11 @@ Transform:
   - {fileID: 2144997413}
   m_Father: {fileID: 1249560381}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &281032352 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3691372144040235450, guid: f6bde6bcfa2b64947a298bbd04479143, type: 3}
+  m_PrefabInstance: {fileID: 356931983}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &282811325
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6001,6 +6006,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &810494833
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 810494834}
+  - component: {fileID: 810494835}
+  m_Layer: 0
+  m_Name: ScoreHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &810494834
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810494833}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -17.74183, y: 0.10851, z: 9.811}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &810494835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810494833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77993cdac124ee9459e14900f2eec7e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScoreHolder
 --- !u!1001 &838427390
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6078,6 +6127,10 @@ PrefabInstance:
       propertyPath: healthText
       value: 
       objectReference: {fileID: 1479658036}
+    - target: {fileID: 4067755118066860705, guid: 4c51f2fce06ea694c8796bbe0eb13956, type: 3}
+      propertyPath: playerHitSFX
+      value: 
+      objectReference: {fileID: 281032352}
     - target: {fileID: 6215937277691177074, guid: 4c51f2fce06ea694c8796bbe0eb13956, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.27714
@@ -17375,3 +17428,4 @@ SceneRoots:
   - {fileID: 871438111}
   - {fileID: 1628826811}
   - {fileID: 356931983}
+  - {fileID: 810494834}
